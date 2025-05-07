@@ -10,7 +10,7 @@
     <div class="quote-box" id="quoteBox">Loading...</div>
     
     <div class="controls">
-        <label>category:</label>
+        <label>Category:</label>
         <select id="categorySelect">
             <option value="inspiration">Inspiration</option>
             <option value="science">Science</option>
@@ -20,7 +20,7 @@
         
         <button>Previous</button>
         <button>Next</button>
-        <button>Random</button>
+        <button onclick="random_quotes()">Random</button>
         <button>Toggle Dark/Light</button>
 
         <div class="font-size-control">
@@ -29,6 +29,39 @@
             <button>-</button>
         </div>
     </div>
+    <script>
+        const quotes = {
+        inspiration: [
+            "Believe you can and you're halfway there.",
+            "The only way to do great work is to love what you do.",
+            "You are never too old to set another goal or to dream a new dream."
+        ],
+        science: [
+            "Science is a way of thinking much more than it is a body of knowledge.",
+            "The important thing is to never stop questioning.",
+            "Somewhere, something incredible is waiting to be known."
+        ],
+        history: [
+            "History is a set of lies agreed upon.",
+            "The past is never dead. It's not even past.",
+            "The only thing we have to fear is fear itself."
+        ],
+        "Birthday": [
+            "On your special day, may all your dreams come true.",
+            "Wishing you a birthday as bright as your smile.",
+            "Happy birthday to a wonderful person."
+            ]
+        };
+
+        const quoteBox = document.getElementById("quoteBox");
+        const categorySelect = document.getElementById("categorySelect");
+
+        function random_quotes()
+        {
+            const category = categorySelect.value;
+            const quote = quotes[category][Math.floor(Math.random() * quotes[category].length)];
+            quoteBox.innerHTML = quote;
+        }
+    </script>
 </body>
-</style>
 </html>
