@@ -18,8 +18,8 @@
             <option value="Birthday">Birthday</option>
         </select>
         
-        <button>Previous</button>
-        <button>Next</button>
+        <button onclick="previous_quotes()">Previous</button>
+        <button onclick="next_quotes()">Next</button>
         <button onclick="random_quotes()">Random</button>
         <button>Toggle Dark/Light</button>
 
@@ -53,15 +53,33 @@
             ]
         };
 
+        let currentIndex = 0;
+        let currentCategory = "inspiration";
+        let currentFontSize = 16;
+
         const quoteBox = document.getElementById("quoteBox");
         const categorySelect = document.getElementById("categorySelect");
 
         function random_quotes()
         {
-            const category = categorySelect.value;
-            const quote = quotes[category][Math.floor(Math.random() * quotes[category].length)];
-            quoteBox.innerHTML = quote;
+            const categoryQuotes = quotes[currentCategory];
+            currentIndex = Math.floor(Math.random() * categoryQuotes.length);
+            display_Quote();
         }
+        function display_Quote() 
+        {
+            const categoryQuotes = quotes[currentCategory];
+            quoteBox.textContent = categoryQuotes[currentIndex];
+        }
+
+        function next_quotes()
+        {
+        }
+
+        function previous_quotes()
+        {
+        }
+        
     </script>
 </body>
 </html>
