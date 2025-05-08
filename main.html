@@ -66,6 +66,7 @@
             currentIndex = Math.floor(Math.random() * categoryQuotes.length);
             display_Quote();
         }
+
         function display_Quote() 
         {
             const categoryQuotes = quotes[currentCategory];
@@ -74,10 +75,16 @@
 
         function next_quotes()
         {
+            const categoryQuotes = quotes[currentCategory];
+            currentIndex = (currentIndex + 1) % categoryQuotes.length;
+            display_Quote();
         }
 
         function previous_quotes()
         {
+            const categoryQuotes = quotes[currentCategory];
+            currentIndex = (currentIndex - 1 + categoryQuotes.length) % categoryQuotes.length;
+            display_Quote();
         }
         
     </script>
