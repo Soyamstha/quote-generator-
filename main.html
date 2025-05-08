@@ -21,7 +21,7 @@
         <button onclick="previous_quotes()">Previous</button>
         <button onclick="next_quotes()">Next</button>
         <button onclick="random_quotes()">Random</button>
-        <button>Toggle Dark/Light</button>
+        <button onclick="toggleDarkMode()">Toggle Dark/Light</button>
 
         <div class="font-size-control">
             <label>Font Size:</label>
@@ -85,6 +85,14 @@
             const categoryQuotes = quotes[currentCategory];
             currentIndex = (currentIndex - 1 + categoryQuotes.length) % categoryQuotes.length;
             display_Quote();
+        }
+
+        function toggleDarkMode()
+        {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+            const quoteBox = document.getElementById("quoteBox");
+            quoteBox.classList.toggle("dark-mode");
         }
         
     </script>
